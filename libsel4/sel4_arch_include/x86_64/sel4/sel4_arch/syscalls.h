@@ -655,6 +655,18 @@ LIBSEL4_INLINE_FUNC seL4_Uint32 seL4_DebugCapIdentify(seL4_CPtr cap)
     x64_sys_send_recv(seL4_SysDebugCapIdentify, cap, &cap, 0, &unused0, &unused1, &unused2, &unused3, &unused4, 0);
     return (seL4_Uint32)cap;
 }
+
+LIBSEL4_INLINE_FUNC seL4_Word seL4_DebugCapPaddr(seL4_CPtr cap)
+{
+    seL4_Word unused0 = 0;
+    seL4_Word unused1 = 0;
+    seL4_Word unused2 = 0;
+    seL4_Word unused3 = 0;
+    seL4_Word unused4 = 0;
+
+    x64_sys_send_recv(seL4_SysDebugCapPaddr, cap, &cap, 0, &unused0, &unused1, &unused2, &unused3, &unused4, 0);
+    return (seL4_Word)cap;
+}
 #endif
 
 #ifdef CONFIG_DEBUG_BUILD
